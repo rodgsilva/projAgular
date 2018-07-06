@@ -1,0 +1,100 @@
+<div class="col-md-12"style="margin-left:1%">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Service Photo | {{nome}} </h3>
+    </div>
+      <form class="form-horizontal" [formGroup]="formGroup" novalidate>
+        <div [ngClass]="classCss" role="alert" *ngIf="message">
+            <strong>{{message.text}}</strong>
+        </div>
+        <div class="box-body " >
+               <div class="row" >
+                  <div class="col-sm-6" [ngClass]="aplicaCssErro('logradouro')">
+                      <label for="logradouro" class="control-label">Logradouro</label>
+                       <input 
+                         id="logradouro"
+                         formControlName="logradouro"
+                         type="text" 
+                         class="form-control" 
+                         placeholder="logradouro" 
+                         required>
+                     <app-campo-control-erro
+                         [mostrarErro]="verificaValidTouched('logradouro')"
+                         msgErro="Logradouro é obrigatório.">
+                     </app-campo-control-erro>
+                  </div>
+   
+                 <div class="col-sm-2" >
+                   <label for="inputNumero" class="control-label">numero</label>
+                    <input
+                       type="text" 
+                       formControlName="numero"
+                       class="form-control"
+                       id="inputNumero" 
+                       placeholder="numero"
+                       >
+                       
+                   </div>
+                
+                 <div  class="col-sm-4">
+                  <label for="inputComplemento" class="control-label">Complemento</label>
+                   <input
+                       formControlName="complemento"
+                       id="inputComplemento"
+                       type="text"
+                       class="form-control"
+                       placeholder="complemento"
+                       >
+                   </div>
+             </div>
+             <div class="row" >
+                <div class="col-sm-6" >
+                    <label for="inputBairro" class="control-label">Bairro</label>
+                     <input 
+                       id="inputBairro"
+                       formControlName="bairro"
+                       type="text" 
+                       class="form-control" 
+                       placeholder="bairro" 
+                       >
+                </div>
+ 
+               <div class="col-sm-2" [ngClass]="aplicaCssErro('cep')">
+                 <label for="cep" class="control-label">CEP</label>
+                  <input
+                     type="text" 
+                     formControlName="cep"
+                     class="form-control"
+                     id="cep" 
+                     placeholder="CEP"
+                     required>
+                 <app-campo-control-erro
+                     [mostrarErro]="verificaValidTouched('cep')"
+                     msgErro="CEP é obrigatório.">
+                 </app-campo-control-erro>
+                     
+                 </div>
+              
+               <div  class="col-sm-4">
+                <label for="cidadeId" class="control-label">Cidade</label>
+                 <input
+                     id="cidadeId"
+                     formControlName="cidadeId"
+                     type="text"
+                     class="form-control"
+                     placeholder="Cidade"
+                     >
+                 </div>
+           </div>
+           <td><button class="btn btn-primary" (click)="atualizaEnd()">Carregar</button> </td>
+           
+        </div>
+      
+      <div class="box-footer">
+        
+        <button  class="btn btn-info pull-right"(click)="register()">Salvar</button>
+      </div>
+
+    </form>
+  </div>
+</div>

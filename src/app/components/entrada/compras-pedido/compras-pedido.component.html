@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-2">
+      <div class="box">
+    <app-categorias (mudouCat)="onMudouCat($event)"></app-categorias> 
+  </div>
+</div>
+  <div class="col-md-10" style="margin-left:-2%">
+    <div class="box">
+ 
+    <app-produtos [catId]="catId" (novoProduto)="onNovoProduto($event)" ></app-produtos>
+    </div>
+
+  </div>
+  <div class="col-md-10" style="margin-left:-2%">
+      <div class="box">
+          <app-cart [novoProd]="novoProd" [addProd]=true></app-cart>
+      </div>
+  </div>        
+</div>

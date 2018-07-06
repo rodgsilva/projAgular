@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-12">
+      <!-- Widget: user widget style 1 -->
+      <div class="box box-widget widget-user-2">
+      
+        <div class="widget-user-header bg-aqua-active">
+          
+          <h4 class="widget-user-username-center">Categorias</h4>
+         
+        </div>
+         <div class="box-footer no-padding">
+       
+          <tr type="button" class="btn btn-block btn-primary btn-flat" *ngFor ="let item of items"(click)="cat(item.id)">
+               <td >{{item.nome}} </td>
+         </tr>
+        </div>
+      </div>
+     
+    </div>
+</div>

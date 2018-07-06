@@ -1,0 +1,113 @@
+<div class="col-md-12"style="margin-left:0%">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Service Photo | Cadastro</h3>
+    </div>
+      <form class="form-horizontal" [formGroup]="formGroup"  novalidate>
+        <div [ngClass]="classCss" role="alert" *ngIf="message">
+            <strong>{{message.text}}</strong>
+        </div>
+        <div class="box-body " >
+          <div class="row" >
+             <div [ngClass]="aplicaCssErro('nome')" class="col-sm-6" >
+                 <label for="nome" class="control-label">Nome</label>
+                  <input 
+                    id="nome"
+                    formControlName="nome"
+                    type="text" 
+                    class="form-control" 
+                    placeholder="nome" 
+                    required>
+                    <app-campo-control-erro
+                      [mostrarErro]="verificaValidTouched('nome')"
+                       msgErro="Nome é obrigatório.">
+                   </app-campo-control-erro>
+                     </div>
+
+            <div class="col-sm-4 form-group" [ngClass]="aplicaCssErro('email')" >
+              <label for="email" class="control-label">Email</label>
+               <input
+                  type="email" 
+                  formControlName="email"
+                  class="form-control"
+                  id="email" 
+                  placeholder="Email"
+                  required>
+                  <app-campo-control-erro
+                    [mostrarErro]="verificaValidTouched('email')"
+                    msgErro="Email é obrigatório.">
+                  </app-campo-control-erro>
+                   
+            </div>
+           </div>
+          <div class="row">
+            <div class="col-sm-4" [ngClass]="aplicaCssErro('cpfOuCnpj')">
+              <label for="cpfOuCnpj" class="control-label">CPF ou CNPJ</label>
+              <input 
+                  id="cpfOuCnpj"
+                  formControlName="cpfOuCnpj"
+                  type="text" 
+                  class="form-control" 
+                  placeholder="CPF ou CNPJ" 
+                  required>
+              <app-campo-control-erro
+                  [mostrarErro]="verificaValidTouched('cpfOuCnpj')"
+                  msgErro="CPF é obrigatório.">
+              </app-campo-control-erro> 
+             </div>
+             </div> 
+             <div class="box-body col-sm-4">
+              <table class="table table-bordered">
+                 <tr>
+                    <th style="width: 10px">Telefones</th>
+                    <th style="width: 5px">&nbsp;</th>
+                    <th style="width: 5px">&nbsp;</th>
+                 </tr>
+                 <tr *ngFor ="let telefone of telefones">
+                     <td>{{telefone}}</td>
+                     <td><button class="btn btn-success glyphicon glyphicon-plus"></button> </td>
+                     <td><button class="btn btn-primary glyphicon glyphicon-pencil" ></button> </td>
+                     <td><button class="btn btn-danger glyphicon glyphicon-trash" ></button> </td>
+                 </tr>
+               
+               </table>
+            </div>   
+             
+            </div>  
+           <div class="box-body">
+           <table class="table table-bordered">
+              <tr>
+                <th style="width: 10px">Id</th>
+                  <th>Logradouro</th>
+                  <th>Numero</th>
+                  <th>Complemento</th>
+                  <th>bairro</th>
+                  <th>Cidade</th>
+                  <th>UF</th>
+                  <th>CEP</th>
+                 <th style="width: 5px">&nbsp;</th>
+                 <th style="width: 5px">&nbsp;</th>
+                 <th style="width: 5px">&nbsp;</th>
+              </tr>
+              <tr *ngFor ="let endereco of enderecos">
+                  <td>{{endereco.id}}</td>
+                  <td>{{endereco.logradouro}} </td>
+                  <td>{{endereco.numero}}</td>
+                  <td>{{endereco.complemento}}</td>
+                  <td>{{endereco.bairro}}</td>
+                  <td>{{endereco.cidade}}</td>
+                  <td>{{endereco.estado}}</td>
+                  <td>{{endereco.cep}}</td>
+                  <td><button class="btn btn-success glyphicon glyphicon-plus"(click)="create()" ></button> </td>
+                  <td><button class="btn btn-primary glyphicon glyphicon-pencil" (click)="edit(endereco.id)"></button> </td>
+                  <td><button class="btn btn-danger glyphicon glyphicon-trash" (click)="delete(endereco.id)"></button> </td>
+              </tr>
+            
+            </table>
+         </div>
+    </form>
+  </div>
+  <button class="btn btn-primary pull-right" [ngClass]="aplicaBotao(mostraEnd)" (click)="MostraEnd()"></button>
+   <app-cliente-endereco [hidden]="!mostraEnd" [id]="idEnd" [nome]="tipo" [clienteId]="id"></app-cliente-endereco>
+</div>
+

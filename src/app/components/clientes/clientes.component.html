@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6"style="margin-left:20%">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Lista de clientes</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table class="table table-bordered">
+          <tr>
+            <th style="width: 10px">Id</th>
+              <th>Nome</th>
+              <th>email</th>
+             <th style="width: 10px">&nbsp;</th>
+             <th style="width: 10px">&nbsp;</th>
+          </tr>
+            <tr *ngFor ="let cliente of clientes">
+              <td>{{cliente.id}}</td>
+              <td>{{cliente.nome}} </td>
+              <td>{{cliente.email}}</td>
+              <td><button class="btn btn-primary" (click)="edit(cliente.id)" routerLink="/novocliente/id">Edit</button> </td>
+              <td><button class="btn btn-danger" (click)="delete(cliente.id)">Deletar</button> </td>
+            </tr>
+        
+        </table>
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer clearfix">
+        <ul class="pagination pagination-sm no-margin pull-right">
+          <li><a routerLink="#" (click)="setPreviousPage ($event)">&laquo;</a></li>
+          <li *ngFor="let p of pages; let i = index" >
+            <a [ngClass]="{'pagination-focus':i == page}"  routerLink="#" (click)="setPage(i,$event)">{{i+1}}</a>
+          </li>
+          <li><a  routerLink="#" (click)="setNextpage($event)">&raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
