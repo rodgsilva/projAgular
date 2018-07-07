@@ -42,11 +42,21 @@ export class CartComponent implements OnChanges, OnInit {
     console.log(produto.id)
 
   }
-  increaseQuantity(produto: ProdutoDTO) {
+  increaseQuantity(iditem:string,nomeitem:string,precoitem:number) {
+    let produto: ProdutoDTO={
+      id :iditem,
+      nome :nomeitem,
+      preco :precoitem
+       }
     this.items = this.cartService.increaseQuantity(produto).items;
   }
 
-  decreaseQuantity(produto: ProdutoDTO) {
+  decreaseQuantity(iditem:string,nomeitem:string,precoitem:number) {
+    let produto: ProdutoDTO={
+      id :iditem,
+      nome :nomeitem,
+      preco :precoitem
+       }
     this.items = this.cartService.decreaseQuantity(produto).items;
   }
 

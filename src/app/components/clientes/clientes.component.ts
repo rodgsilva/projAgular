@@ -85,14 +85,14 @@ export class ClientesComponent implements OnInit {
       });
   }
   setNextpage(event:any){
-    event.preventDefaul();
-    if(this.page+1< this.pages.length){
-      this.page = this.page +1;
+    event.preventDefault();
+    if(this.page + 1 < this.pages.length){
+      this.page = this.page + 1;
       this.findAll(this.page,this.count);
     }
   }
   setPreviousPage(event:any){
-    event.preventDefaul();
+    event.preventDefault();
     if(this.page > 0 ){
       this.page = this.page - 1;
       this.findAll(this.page,this.count);
@@ -100,7 +100,7 @@ export class ClientesComponent implements OnInit {
   }
 
   setPage(i,event:any){
-    event.preventDefaul();
+    event.preventDefault();
       this.page = i;
       this.findAll(this.page,this.count);
     

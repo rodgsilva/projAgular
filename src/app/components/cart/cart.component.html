@@ -11,17 +11,32 @@
               <th style="width: 10px">Id</th>
                 <th>Nome</th>
                 <th>Preço</th>
-                <th>Quantidade</th>
+                <th style="width: 10px">Quantidade</th>
                <th style="width: 10px">&nbsp;</th>
                <th style="width: 10px">&nbsp;</th>
             </tr>
               <tr *ngFor ="let item of items">
                 <td>{{item.produto.id}}</td>
                 <td>{{item.produto.nome}} </td>
-                <td>{{item.produto.preco | currency}}</td>
-                <td>{{item.quantidade}} </td>
-                <td><button class="btn btn-primary" (click)="edit(item.id)" routerLink="#">Edit</button> </td>
-                <td><button class="btn btn-danger" (click)="removeItem(item.produto.id,item.produto.nome,item.produto.preco,item.quantidade)">Deletar</button> </td>
+                <td>{{item.produto.preco | currency:'BRL':true}}</td>
+                <td>
+                    <div class="input-group margin col-xs-3">
+                      <div class="input-group-btn">
+                        <button type="button" class="btn btn-danger btn-xs glyphicon glyphicon-minus" style="top: 0px" (click)="decreaseQuantity(item.produto.id,item.produto.nome,item.produto.preco,item.quantidade)"></button>
+                      </div>
+                     
+                      <input type="input-sm" style="width: 25px" value={{item.quantidade}} >
+                     
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-success btn-xs glyphicon glyphicon-plus" style="top: 0px" 
+                               (click)="increaseQuantity(item.produto.id,item.produto.nome,item.produto.preco,item.quantidade)">
+                       </button>
+                      </div>
+                    </div>
+                   </td>
+                  <td><button class="btn btn-danger btn-xs  glyphicon glyphicon-trash"  style="top: 10px"
+                           (click)="removeItem(item.produto.id,item.produto.nome,item.produto.preco,item.quantidade)">
+                  </button> </td>
               </tr>
           
           </table>
@@ -36,6 +51,15 @@
             <li><a  routerLink="#" (click)="setNextpage($event)">&raquo;</a></li>
           </ul>
         </div>
+        <div class="col-md-12" *ngIf="total() > 0">
+            <h4 class="text-light-blue">Total: {{total() | currency:'BRL':true}}</h4>    
+        </div>
+          <div *ngIf="total() <= 0">
+            <h5>Seu carrinho está vazio</h5>
+          </div>
+       
+        <button  >Continuar comprando</button>   
+        <button *ngIf="total() > 0" >Finalizar pedido</button>   
       </div>
     </div>
   </div>

@@ -13,7 +13,7 @@ export class ProdutoService {
     return this.http.get<ProdutoDTO>(`${SP_API.baseUrl}/produtos/${produto_id}`);
   }
 
-  findByCategoria(categoria_id : string, page : number = 0, linesPerPage : number = 12) {
+  findByCategoria(categoria_id : string, page : number, linesPerPage : number = 12) {
     return this.http.get(`${SP_API.baseUrl}/produtos/?categorias=${categoria_id}&page=${page}&linesPerPage=${linesPerPage}`);
   }
 

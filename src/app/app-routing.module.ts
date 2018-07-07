@@ -12,7 +12,7 @@ import { ClienteEnderecoComponent } from './components/clientes/cliente-endereco
 import { ComprasPedidoComponent } from './components/entrada/compras-pedido/compras-pedido.component';
 
 let routes = [
-  {path : "" , component :HomeComponent,canActivate:[AuthGuard]},
+ // {path : "" , component :HomeComponent,canActivate:[AuthGuard]},
   {path : "home" , component :HomeComponent,canActivate:[AuthGuard]},
   {path : "listacliente" , component :ClientesComponent,canActivate:[AuthGuard] },
   {path : "novocliente" , component :ClienteNovoComponent },

@@ -13,7 +13,7 @@ export class ComprasPedidoComponent implements OnInit {
   ngOnInit() {
   }
   onMudouCat(evento){
-    console.log(evento.novoValor);
+   // console.log(evento.novoValor);
     this.catId=evento.novoValor;
   }
   onNovoProduto(evento){

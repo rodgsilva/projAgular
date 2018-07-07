@@ -8,18 +8,18 @@
       <div class="box-body">
         <table class="table table-bordered">
           <tr>
-            <th style="width: 10px">Id</th>
-              <th>Nome</th>
-              <th>Preço</th>
-             <th style="width: 10px">&nbsp;</th>
-             <th style="width: 10px">&nbsp;</th>
+            <th style="width: 5px">Id</th>
+              <th style="width : 10px">Nome</th>
+              <th style="width: 5px">Preço</th>
+             <th style="width: 5px">&nbsp;</th>
+             
           </tr>
             <tr *ngFor ="let item of items">
               <td>{{item?.id}}</td>
               <td>{{item?.nome}} </td>
               <td>{{item?.preco | currency}}</td>
-              <td><button class="btn btn-success glyphicon glyphicon-plus"(click)="addToCart(item.id,item.nome,item.preco)" ></button> </td>
-              <td><button class="btn btn-danger" (click)="delete(item.id)">Deletar</button> </td>
+              <td><button class="btn btn-success btn-xs glyphicon glyphicon-plus "(click)="addToCart(item.id,item.nome,item.preco)" ></button> </td>
+
             </tr>
         
         </table>
@@ -27,11 +27,11 @@
       <!-- /.box-body -->
       <div class="box-footer clearfix">
         <ul class="pagination pagination-sm no-margin pull-right">
-          <li><a routerLink="#" (click)="setPreviousPage ($event)">&laquo;</a></li>
+          <li><a href="" (click)="setPreviousPage($event)">&laquo;</a></li>
           <li *ngFor="let p of pages; let i = index" >
-            <a [ngClass]="{'pagination-focus':i == page}"  routerLink="#" (click)="setPage(i,$event)">{{i+1}}</a>
+            <a [ngClass]="{'pagination-focus':i == page}"  href="" (click)="setPage(i,$event)">{{i+1}}</a>
           </li>
-          <li><a  routerLink="#" (click)="setNextpage($event)">&raquo;</a></li>
+          <li><a  href="" (click)="setNextpage($event)">&raquo;</a></li>
         </ul>
       </div>
     </div>
