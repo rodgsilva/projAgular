@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-6"style="margin-left:20%">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Lista de clientes</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+            <tr>
+              <th style="width: 10px">Id</th>
+                <th>Nome</th>
+                <th>email</th>
+               <th style="width: 10px">&nbsp;</th>
+               <th style="width: 10px">&nbsp;</th>
+            </tr>
+              <tr *ngFor ="let fornecedor of fornecedores">
+                <td>{{fornecedor.id}}</td>
+                <td>{{fornecedor.nome}} </td>
+                <td>{{fornecedor.email}}</td>
+                <td><button class="btn btn-primary" (click)="edit(fornecedor.id)" routerLink="/pedidocompras/id">Entrada de Nota</button> </td>
+                <!--td><button class="btn btn-danger" (click)="delete(fornecedor.id)">Financeiro</button> </td-->
+              </tr>
+          
+          </table>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+          <ul class="pagination pagination-sm no-margin pull-right">
+            <li><a href="" (click)="setPreviousPage ($event)">&laquo;</a></li>
+            <li *ngFor="let p of pages; let i = index" >
+              <a [ngClass]="{'pagination-focus':i == page}"  href="" (click)="setPage(i,$event)">{{i+1}}</a>
+            </li>
+            <li><a  href="" (click)="setNextpage($event)">&raquo;</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

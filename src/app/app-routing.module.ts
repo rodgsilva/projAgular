@@ -10,6 +10,7 @@ import { ClienteNovoComponent } from './components/clientes/cliente-novo/cliente
 import { ClienteEditComponent } from './components/clientes/cliente-edit/cliente-edit.component';
 import { ClienteEnderecoComponent } from './components/clientes/cliente-endereco/cliente-endereco.component';
 import { ComprasPedidoComponent } from './components/entrada/compras-pedido/compras-pedido.component';
+import { FornecedorComponent } from './components/fornecedor/fornecedor.component';
 
 let routes = [
  // {path : "" , component :HomeComponent,canActivate:[AuthGuard]},
@@ -19,6 +20,9 @@ let routes = [
   {path : "editcliente/:id" , component :ClienteEditComponent,canActivate:[AuthGuard] },
   {path : "enderecocliente/:id" , component :ClienteEnderecoComponent,canActivate:[AuthGuard] },
   {path : "pedidocompras" , component :ComprasPedidoComponent,canActivate:[AuthGuard] },
+  {path : "novacompra" , component :FornecedorComponent,canActivate:[AuthGuard] },
+  {path : "pedidocompras/:id" , component :ComprasPedidoComponent,canActivate:[AuthGuard] },
+
  // {path : "cliente/:id" , component :Cliente },
   {path : "login" , component :LoginComponent },
   {path : "**" , redirectTo : "/home"}];

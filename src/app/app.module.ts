@@ -31,6 +31,12 @@ import { CategoriaService } from './services/categoria.service';
 import { ProdutoService } from './services/produto.service';
 import { CartService } from './services/cart.service';
 import { CartComponent } from './components/cart/cart.component';
+import { FornecedorComponent } from './components/fornecedor/fornecedor.component';
+import { FornecedorEditComponent } from './components/fornecedor/fornecedor-edit/fornecedor-edit.component';
+import { FornecedorEnderecoComponent } from './components/fornecedor/fornecedor-endereco/fornecedor-endereco.component';
+import { FornecedorNovoComponent } from './components/fornecedor/fornecedor-novo/fornecedor-novo.component';
+import { FornecedorConsultaComponent } from './components/fornecedor/fornecedor-consulta/fornecedor-consulta.component';
+import { FornecedorService } from './services/fornecedor.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +56,12 @@ import { CartComponent } from './components/cart/cart.component';
     ProdutosComponent,
     CategoriasComponent,
     ComprasPedidoComponent,
-    CartComponent
+    CartComponent,
+    FornecedorComponent,
+    FornecedorEditComponent,
+    FornecedorEnderecoComponent,
+    FornecedorNovoComponent,
+    FornecedorConsultaComponent
     
   ],
   imports: [
@@ -68,7 +79,8 @@ import { CartComponent } from './components/cart/cart.component';
     AuthGuard,
     CategoriaService,
     ProdutoService,
-    CartService
+    CartService,
+    FornecedorService
    ],
   bootstrap: [AppComponent]
 })

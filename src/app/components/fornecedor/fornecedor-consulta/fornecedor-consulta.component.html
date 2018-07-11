@@ -1,0 +1,54 @@
+<div class="col-md-12"style="margin-left:0%">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Service Photo | Compra</h3>
+    </div>
+      <form class="form-horizontal" [formGroup]="formGroup"  novalidate>
+        <div [ngClass]="classCss" role="alert" *ngIf="message">
+            <strong>{{message.text}}</strong>
+        </div>
+        <div class="box-body " >
+          <div class="row" >
+             <div  class="col-sm-4" >
+                 <label for="nome" class="control-label">Nome</label>
+                  <input 
+                    id="nome"
+                    formControlName="nome"
+                    type="text" 
+                    class="form-control input-sm" 
+                    placeholder="nome" 
+                    readonly>
+                   
+                     </div>
+
+            <div class="col-sm-4 form-group">
+              <label for="email" class="control-label">Email</label>
+               <input
+                  type="email" 
+                  formControlName="email"
+                  class="form-control input-sm"
+                  id="email" 
+                  placeholder="Email"
+                  readonly>
+                                   
+            </div>
+          
+            <div class="col-sm-2" >
+              <label for="cpfOuCnpj" class="control-label">CPF ou CNPJ</label>
+              <input 
+                  id="cpfOuCnpj"
+                  formControlName="cpfOuCnpj"
+                  type="text" 
+                  class="form-control input-sm" 
+                  placeholder="CPF ou CNPJ" 
+                  readonly>
+             
+             </div>
+             </div> 
+                    
+            </div>  
+           
+    </form>
+  </div>
+</div>
+
