@@ -5,20 +5,23 @@
           <h3 class="box-title">Produtos Selecionados</h3>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
-          <table class="table table-bordered">
+        <div class="box-body" #valor>
+          <table class="table table-bordered" >
             <tr>
               <th style="width: 10px">Id</th>
                 <th>Nome</th>
                 <th>Preço</th>
                 <th style="width: 10px">Quantidade</th>
                <th style="width: 10px">&nbsp;</th>
-               <th style="width: 10px">&nbsp;</th>
+               <th style="width: 10px; text-outline: 50px">&nbsp;</th>
             </tr>
               <tr *ngFor ="let item of items">
                 <td>{{item.produto.id}}</td>
-                <td>{{item.produto.nome}} </td>
-                <td>{{item.produto.preco | currency:'BRL':true}}</td>
+                <td >{{item.produto.nome}} </td>
+                <input type="input-sm text" value="{{item.produto.preco | currency:'BRL':true}}"
+                (keyup.enter)="atualizavalor(item.produto.id,item.produto.nome,$event.target.value)"
+                
+                 >
                 <td>
                     <div class="input-group margin col-xs-3">
                       <div class="input-group-btn">
@@ -43,6 +46,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix">
+          {{valorT}}
           <ul class="pagination pagination-sm no-margin pull-right">
             <li><a routerLink="#" (click)="setPreviousPage ($event)">&laquo;</a></li>
             <li *ngFor="let p of pages; let i = index" >
@@ -59,7 +63,7 @@
           </div>
        
         <button  >Continuar comprando</button>   
-        <button *ngIf="total() > 0" >Finalizar pedido</button>   
+        <button *ngIf="total() > 0" (click)="confirme()" >Finalizar pedido</button>   
       </div>
     </div>
   </div>

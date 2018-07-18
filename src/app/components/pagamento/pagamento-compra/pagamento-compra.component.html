@@ -1,0 +1,101 @@
+<div   class="col-md-12"style="margin-left:0%" #qtdpar>
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">Service Photo | Pagamento</h3>
+      </div>
+        <form #f="ngForm" class="form-horizontal">
+          <div >
+            
+          </div>
+          <div class="box-body " >
+            <div class="row" >
+               <div class="col-sm-3" >
+                   <label for="NumeroDocumento" class="control-label">Numero Documento</label>
+                    <input 
+                      id="NumeroDocumento"
+                      type="text" 
+                      class="form-control"
+                      placeholder="Numero Documento" 
+                      name="NumeroDocumento"
+                      [(ngModel)]="numeroDoc"
+                      required>               
+               </div>
+  
+           
+              <div class="col-sm-2" >
+                <label for="qtdParcela" class="control-label">Qtd de parcela</label>
+                <input 
+                    id="qtdParcela"
+                    type="text" 
+                    name="qtdParcela"
+                    class="form-control"
+                    placeholder="Quantidade de parcela" 
+                    [(ngModel)]="qtdParcela">
+                  
+               </div>
+               <div  >
+                <div class="col-sm-2" >
+                  <label for="intervaloDia" class="control-label">Intervalo de dias</label>
+                  <input 
+                      id="intervaloDia"
+                      type="text" 
+                      name="intervaloDia"
+                      class="form-control"
+                      placeholder="Intervalo de dias" 
+                      [(ngModel)]="intervaloDia">
+                    
+                 </div>
+               </div> 
+                 
+              <div>
+                <div class="col-sm-2" >
+                  <label for="datVenc" class="control-label">Data Vencimento</label>
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div> 
+                      <input 
+                          id="datVenc"
+                          type="date" 
+                          name="datVenc"
+                          class="form-control pull-right"
+                          [(ngModel)]="datVenc">
+
+                     </div>
+                    </div>
+                 </div>
+                 
+             
+                </div>
+               <button class="btn btn-primary" (click)="geraParcela()" >Parcela</button> 
+               <button class="btn btn-primary" (click)="limparParcela()" >Limpar</button> 
+              </div>  
+              <div >
+                  <table class="table table-bordered">
+                    <tr>
+                     
+                        <th style="width: 5px">Numero Documento</th>
+                        <th style="width: 5px">data Vencimento</th>
+                        
+                        <th style="width: 5px">Valor Parcela</th>
+                    
+                    </tr>
+                      <tr *ngFor ="let parcela of parcelas">
+                        <td>{{parcela?.numeroDocumento}}</td>
+                        <td> <input value="{{parcela?.dataVencimento }}"></td>
+                        <td> <input value="{{parcela?.valorParcela | currency:'BRL':true }}"></td>
+                        
+                        <!--td><button class="btn btn-danger" (click)="delete(fornecedor.id)">Financeiro</button> </td-->
+                      </tr>
+                  
+                  </table>
+                </div>
+                <div [hidden]="!finaliza">
+                   <button class="btn btn-primary" (click)="cadastrar()" >Entrada de Nota</button>    
+               </div> 
+      </form>
+    </div>
+
+   </div>
+  
+  

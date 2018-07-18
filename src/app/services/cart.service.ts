@@ -41,6 +41,16 @@ removeProduto(produto: ProdutoDTO) : Cart {
     this.storage.setCart(cart);
     return cart;
 }
+atualizavalor(produto: ProdutoDTO) : Cart {
+    let cart = this.getCart();
+    let position = cart.items.findIndex(x => x.produto.id == produto.id);
+    
+    if (position != -1) {
+        cart.items[position].produto.preco = produto.preco;
+    }
+    this.storage.setCart(cart);
+    return cart;
+}
 
 increaseQuantity(produto: ProdutoDTO) : Cart {
     let cart = this.getCart();

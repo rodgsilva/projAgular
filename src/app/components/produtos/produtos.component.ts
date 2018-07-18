@@ -12,6 +12,7 @@ export class ProdutosComponent implements OnChanges, OnInit {
 
   @Output() novoProduto = new EventEmitter();
   @Input() catId:string;
+  @Input() idFornecedor:String;
   items:ProdutoDTO[]=[];
   page : number = 0;
   count : number= 5;
@@ -72,7 +73,6 @@ export class ProdutosComponent implements OnChanges, OnInit {
    
     console.log(this.produto.id);   
  
-  
   }
 
   setNextpage(event:any){
@@ -96,5 +96,6 @@ export class ProdutosComponent implements OnChanges, OnInit {
       this.loadData();
 
   }
+
 
 }

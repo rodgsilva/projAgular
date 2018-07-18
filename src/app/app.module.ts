@@ -37,6 +37,9 @@ import { FornecedorEnderecoComponent } from './components/fornecedor/fornecedor-
 import { FornecedorNovoComponent } from './components/fornecedor/fornecedor-novo/fornecedor-novo.component';
 import { FornecedorConsultaComponent } from './components/fornecedor/fornecedor-consulta/fornecedor-consulta.component';
 import { FornecedorService } from './services/fornecedor.service';
+import { PagamentoCompraComponent } from './components/pagamento/pagamento-compra/pagamento-compra.component';
+import { PedidoCompraService } from './services/pedido-compra.service';
+import { FinanceiroPagarService } from './services/financeiro-pagar.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,8 @@ import { FornecedorService } from './services/fornecedor.service';
     FornecedorEditComponent,
     FornecedorEnderecoComponent,
     FornecedorNovoComponent,
-    FornecedorConsultaComponent
+    FornecedorConsultaComponent,
+    PagamentoCompraComponent
     
   ],
   imports: [
@@ -80,7 +84,9 @@ import { FornecedorService } from './services/fornecedor.service';
     CategoriaService,
     ProdutoService,
     CartService,
-    FornecedorService
+    FornecedorService,
+    PedidoCompraService,
+    FinanceiroPagarService
    ],
   bootstrap: [AppComponent]
 })
