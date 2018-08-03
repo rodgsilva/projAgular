@@ -1,3 +1,82 @@
-<p>
-  compras-lista works!
-</p>
+<div class="row">
+  <div class="col-md-12"style="margin-left:0%">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Lista de Compras / Serviço</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+       <div> 
+        <table class="table table-bordered">
+         <thead>
+          <tr>
+            
+              <th style="width: 10px"></th>
+              <th style="width: 10px">Id</th>
+              <th>Dt Cadastro</th>
+              <th>Fornecedor</th>
+              <th>Valor Total</th>
+              <th>Status Pagamento</th>
+             <th style="width: 10px">&nbsp;</th>
+             <th style="width: 10px">&nbsp;</th>
+      
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor ="let compra of compras">
+              <td><button class="btn btn-primary pull-right" [ngClass]="aplicaBotao(mostraItem)" (click)="item(compra.id)"></button></td>
+              <td>{{compra.id}}</td>
+              <td>{{compra.instante}} </td>
+              <td>{{compra.fornecedor}}</td>
+              <td>{{compra.valorTotal |  currency:'BRL':true}}</td>
+              <td>{{compra.financeiroPagar}}</td>                                    
+              <!--<td><button class="btn btn-primary" (click)="edit(cliente.id)" routerLink="/novocliente/id">Edit</button> </td>-->
+              <!--<td><button class="btn btn-danger" (click)="delete(cliente.id)">Deletar</button> </td>-->
+            </tr> 
+         </tbody>              
+        </table>
+        <div class="pull-right box-tools">
+            <ul class="pagination pagination-sm no-margin pull-right">
+              <li><a href="" (click)="setPreviousPage ($event)">&laquo;</a></li>
+              <li *ngFor="let p of pages; let i = index" >
+                <a [ngClass]="{'pagination-focus':i == page}"  href="" (click)="setPage(i,$event)">{{i+1}}</a>
+              </li>
+              <li><a  href="" (click)="setNextpage($event)">&raquo;</a></li>
+            </ul>
+        </div>
+      </div>  
+      <div>  
+        <table  class="table table-bordered"> 
+         <thead>
+            <tr>
+              <th style="width: 05px">Numero</th>
+              <th >Nome</th>
+              <th style="width: 05px">Quantidade</th>
+              <th style="width: 05px">Desconto</th>
+              <th style="width: 05px">Preço</th>
+              <th></th>
+            </tr>
+           </thead>
+           <tbody>   
+            <tr *ngFor ="let item of itens">
+              <td>{{item?.idPedido}}</td> 
+              <td>{{item?.nome}}</td> 
+              <td>{{item?.quantidade}}</td> 
+              <td>{{item?.desconto | currency:'BRL':true}}</td> 
+              <td>{{item?.preco | currency:'BRL':true}}</td> 
+              <td></td> 
+              <td></td> 
+            </tr>
+          
+        </tbody>              
+      </table>   
+     </div>   
+    
+      </div>
+      <!-- /.box-body -->
+   
+    </div>
+  </div>
+</div>
+
+

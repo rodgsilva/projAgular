@@ -12,6 +12,8 @@ import { ClienteEnderecoComponent } from './components/clientes/cliente-endereco
 import { ComprasPedidoComponent } from './components/entrada/compras-pedido/compras-pedido.component';
 import { FornecedorComponent } from './components/fornecedor/fornecedor.component';
 import { PagamentoCompraComponent } from './components/pagamento/pagamento-compra/pagamento-compra.component';
+import { ComprasListaComponent } from './components/entrada/compras-lista/compras-lista.component';
+import { PagamentoCompraListaComponent } from './components/pagamento/pagamento-compra-lista/pagamento-compra-lista.component';
 
 let routes = [
  // {path : "" , component :HomeComponent,canActivate:[AuthGuard]},
@@ -24,6 +26,8 @@ let routes = [
   {path : "novacompra" , component :FornecedorComponent,canActivate:[AuthGuard] },
   {path : "pedidocompras/:id" , component :ComprasPedidoComponent,canActivate:[AuthGuard] },
   {path : "comprapagamento" , component :PagamentoCompraComponent,canActivate:[AuthGuard] },
+  {path : "lista-entrada" , component :ComprasListaComponent,canActivate:[AuthGuard] },
+  {path : "lista-financeiropagar" , component :PagamentoCompraListaComponent,canActivate:[AuthGuard] },
   
  // {path : "cliente/:id" , component :Cliente },
   {path : "login" , component :LoginComponent },

@@ -40,6 +40,7 @@ import { FornecedorService } from './services/fornecedor.service';
 import { PagamentoCompraComponent } from './components/pagamento/pagamento-compra/pagamento-compra.component';
 import { PedidoCompraService } from './services/pedido-compra.service';
 import { FinanceiroPagarService } from './services/financeiro-pagar.service';
+import { PagamentoCompraListaComponent } from './components/pagamento/pagamento-compra-lista/pagamento-compra-lista.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { FinanceiroPagarService } from './services/financeiro-pagar.service';
     FornecedorEnderecoComponent,
     FornecedorNovoComponent,
     FornecedorConsultaComponent,
-    PagamentoCompraComponent
+    PagamentoCompraComponent,
+    PagamentoCompraListaComponent
     
   ],
   imports: [
