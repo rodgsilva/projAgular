@@ -4,6 +4,7 @@ import { FinanceiroPagarDTO } from '../model/financeiropagar.dto';
 import { SP_API } from './sp.api';
 import { Observable } from '../../../node_modules/rxjs';
 import { findLocaleData } from '../../../node_modules/@angular/common/src/i18n/locale_data_api';
+import { ParcelaFinaceiroPagarDTO } from '../model/parcela-financeiropagar';
 
 @Injectable()
 export class FinanceiroPagarService {
@@ -29,6 +30,13 @@ export class FinanceiroPagarService {
   }
 FindOne(id:string){
   return this.http.get(`${SP_API.baseUrl}/financeiro/${id}`)
+}
+pagaParcela(id:string,documento:ParcelaFinaceiroPagarDTO){
+  return this.http.put(`${SP_API.baseUrl}/financeiro/${id}/parcelado`,documento,
+  {
+    observe: 'response',
+    responseType: 'text'
+});
 }
 
 }

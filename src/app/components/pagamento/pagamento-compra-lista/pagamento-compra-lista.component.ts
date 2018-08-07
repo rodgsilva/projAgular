@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FinanceiroPagarService } from '../../../services/financeiro-pagar.service';
 
+import { ParcelaFinaceiroPagarDTO } from '../../../model/parcela-financeiropagar';
+
 @Component({
   selector: 'app-pagamento-compra-lista',
   templateUrl: './pagamento-compra-lista.component.html',
@@ -12,6 +14,9 @@ export class PagamentoCompraListaComponent implements OnInit {
   pages:Array<number>;
   financeiros:any;
   parcelaFincs:Array<any>;
+  documento:ParcelaFinaceiroPagarDTO;
+  dataPagamento:string;
+
 
   constructor(
     private financeiroService: FinanceiroPagarService
@@ -42,7 +47,23 @@ export class PagamentoCompraListaComponent implements OnInit {
     
     });
   }  
+  pagaParcela(idDoc:string,dtPag:string){
+    console.log("passou Click")
+    this.documento={
+      id: idDoc,
+      dataPagamento:dtPag ,
+      dataVencimento:null,
+      numeroDocumento:null,
+      valorParcela:null      
+    };
+  
+    this.financeiroService.pagaParcela(this.documento.id,this.documento)
+      .subscribe(response=>{
+        console.log(response);
+        console.log("passou Click 2")
+      })
 
+  }
 
   setNextpage(event:any){
     event.preventDefault();

@@ -61,11 +61,11 @@
          </thead>
          <tbody>
            <tr *ngFor ="let parcelaFinc of parcelaFincs">
-               <td><button class="btn btn-primary pull-right glyphicon glyphicon-th-list" ></button></td><!-- [ngClass]="aplicaBotao(mostraItem)" (click)="item(compra.id)"-->
+               <td><button class="btn btn-primary pull-right glyphicon glyphicon-th-list"  (click)="pagaParcela(parcelaFinc.parcId,nome)" ></button></td><!-- [ngClass]="aplicaBotao(mostraItem)" (click)="item(compra.id)"-->
                <td>{{parcelaFinc?.parcId}}</td>
                <td>{{parcelaFinc?.numeroDocumento}} </td>  
                <td>{{parcelaFinc?.dataVencimento}} </td>  
-               <td>{{parcelaFinc?.dataPagamento}} </td>               
+               <td > <input type="input-sm text"  value="{{parcelaFinc?.dataPagamento}}" nome="data" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask></td>
                <td>{{parcelaFinc?.valorParcela |  currency:'BRL':true}}</td>             
                <td></td>
                <td></td>
