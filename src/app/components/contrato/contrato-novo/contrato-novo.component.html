@@ -1,0 +1,177 @@
+<div class="col-md-12"style="top: -1%;">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">Service Photo | Contrato</h3>
+      </div>
+        <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="register(); $event.preventDefault()"novalidate>
+          <div [ngClass]="classCss" role="alert" *ngIf="message">
+              <strong>{{message.text}}</strong>
+          </div>
+          <div class="box-body " >
+            <div class="row" >
+                <div [ngClass]="aplicaCssErro('curso')" class="col-sm-6" >
+                   <label for="curso" class="control-label">Curso</label>
+                    <input 
+                      id="curso"
+                      formControlName="curso"
+                      type="text" 
+                      class="form-control" 
+                      placeholder="curso" 
+                      required>
+                      <app-campo-control-erro
+                        [mostrarErro]="verificaValidTouched('curso')"
+                         msgErro="Curos é obrigatório.">
+                     </app-campo-control-erro>
+                  </div>
+                  <div [ngClass]="aplicaCssErro('evento')" class="col-sm-6" >
+                      <label for="evento" class="control-label">Evento</label>
+                       <input 
+                         id="evento"
+                         formControlName="evento"
+                         type="text" 
+                         class="form-control" 
+                         placeholder="evento" 
+                         required>
+                         <app-campo-control-erro
+                           [mostrarErro]="verificaValidTouched('evento')"
+                            msgErro="Evento é obrigatório.">
+                        </app-campo-control-erro>
+                     </div>
+                     <div [ngClass]="aplicaCssErro('turma')" class="col-sm-6" >
+                        <label for="turma" class="control-label">Turma</label>
+                         <input 
+                           id="turma"
+                           formControlName="turma"
+                           type="text" 
+                           class="form-control" 
+                           placeholder="turma" 
+                           required>
+                           <app-campo-control-erro
+                             [mostrarErro]="verificaValidTouched('turma')"
+                              msgErro="Evento é obrigatório.">
+                          </app-campo-control-erro>
+                       </div>
+
+                <div class="col-sm-4 form-group" [ngClass]="aplicaCssErro('email')" >
+                  <label for="email" class="control-label">Email</label>
+                  <input
+                      type="email" 
+                      formControlName="email"
+                      class="form-control"
+                      id="email" 
+                      placeholder="Email"
+                      required>
+                      <app-campo-control-erro
+                        [mostrarErro]="verificaValidTouched('email')"
+                        msgErro="Email é obrigatório.">
+                      </app-campo-control-erro>                      
+                  </div>
+                         
+            </div>
+            <div class="row">
+              <div class="col-sm-4" [ngClass]="aplicaCssErro('qtdFormando')">
+                <label for="qtdFormando" class="control-label">qtd Formando</label>
+                <input 
+                    id="qtdFormando"
+                    formControlName="qtdFormando"
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Quantidade de formando" 
+                    required>
+                <app-campo-control-erro
+                    [mostrarErro]="verificaValidTouched('qtdFormando')"
+                    msgErro="Informe a Quantidade.">
+                </app-campo-control-erro> 
+               </div>
+
+                <div class="col-sm-4">
+                  <label for="tipoContrato" class="control-label">Tipo de Contrato</label>
+                  <select
+                      formControlName="tipoContrato"
+                      class="form-control select2" 
+                      style="width: 100%;"
+                       tipo>
+                       <option value="1">Cober. Fotográfica/Filmagem</option>
+                       <option value="2">Cober. Fotográfica</option>
+                       <option value="3">Cober. Filmagem</option>
+                   </select>
+                </div> 
+
+                <div class="col-sm-4">
+                    <label for="periodo" class="control-label">Periodo</label>
+                    <select
+                        formControlName="periodo"
+                        class="form-control select2" 
+                        style="width: 100%;"
+                         tipo>
+                         <option value="1">Manhã</option>
+                         <option value="2">Tarde</option>
+                         <option value="3">Noite</option>
+                        </select>
+                  </div> 
+               </div>   
+               <div class="row" >
+                  <div class="col-sm-4" [ngClass]="aplicaCssErro('qtdParticipantes')">
+                      <label for="qtdParticipantes" class="control-label">Telefone obrigatório</label>
+                       <input 
+                         id="qtdParticipantes"
+                         formControlName="qtdParticipantes"
+                         type="text" 
+                         class="form-control" 
+                         placeholder="qtdParticipantes" 
+                         required>
+                     <app-campo-control-erro
+                         [mostrarErro]="verificaValidTouched('qtdParticipantes')"
+                         msgErro="Informe um qtd Participantes é obrigatório.">
+                     </app-campo-control-erro>
+                  </div>
+   
+                 <div class="col-sm-4" >
+                   <label for="qtdIdentificado" class="control-label">Qtd Identificado</label>
+                    <input
+                       type="text" 
+                       formControlName="qtdIdentificado"
+                       class="form-control"
+                       id="qtdIdentificado" 
+                       placeholder="Qtd Identificado"
+                       >                      
+                   </div>
+                
+                 <div  class="col-sm-4">
+                  <label for="comissao" class="control-label">Comissão</label>
+                   <input
+                       formControlName="comissao"
+                       id="comissao"
+                       type="text"
+                       class="form-control"
+                       placeholder="comissão"
+                       >
+                   </div>
+             
+                    <div class="col-sm-6" [ngClass]="aplicaCssErro('vlrMulta')">
+                        <label for="vlrMulta" class="control-label">Valor Multa</label>
+                         <input 
+                           id="vlrMulta"
+                           formControlName="vlrMulta"
+                           type="text" 
+                           class="form-control" 
+                           placeholder="Valor Multa" 
+                           required>
+                       <app-campo-control-erro
+                           [mostrarErro]="verificaValidTouched('vlrMulta')"
+                           msgErro="Valor Multa é obrigatório.">
+                       </app-campo-control-erro>
+                    </div>
+                  
+             </div>
+     
+          </div>                
+     
+        <div class="box-footer">
+          
+          <button type="submit" class="btn btn-info pull-right" [disabled]="formGroup.invalid">Salvar</button>
+        </div>
+  
+      </form>
+    </div>
+  </div>

@@ -28,6 +28,8 @@ export class FinanceiroPagarService {
   findAll(page:number,count:number){
     return this.http.get(`${SP_API.baseUrl}/financeiro/page?page=${page}&linesPerPage=${count}`);
   }
+
+  
 FindOne(id:string){
   return this.http.get(`${SP_API.baseUrl}/financeiro/${id}`)
 }

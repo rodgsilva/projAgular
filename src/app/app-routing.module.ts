@@ -14,6 +14,8 @@ import { FornecedorComponent } from './components/fornecedor/fornecedor.componen
 import { PagamentoCompraComponent } from './components/pagamento/pagamento-compra/pagamento-compra.component';
 import { ComprasListaComponent } from './components/entrada/compras-lista/compras-lista.component';
 import { PagamentoCompraListaComponent } from './components/pagamento/pagamento-compra-lista/pagamento-compra-lista.component';
+import { ContratoNovoComponent } from './components/contrato/contrato-novo/contrato-novo.component';
+import { ContratoComponent } from './components/contrato/contrato.component';
 
 let routes = [
  // {path : "" , component :HomeComponent,canActivate:[AuthGuard]},
@@ -28,7 +30,7 @@ let routes = [
   {path : "comprapagamento" , component :PagamentoCompraComponent,canActivate:[AuthGuard] },
   {path : "lista-entrada" , component :ComprasListaComponent,canActivate:[AuthGuard] },
   {path : "lista-financeiropagar" , component :PagamentoCompraListaComponent,canActivate:[AuthGuard] },
-  
+  {path : "contratonovo" , component :ContratoComponent,canActivate:[AuthGuard] },
  // {path : "cliente/:id" , component :Cliente },
   {path : "login" , component :LoginComponent },
   {path : "**" , redirectTo : "/home"}];

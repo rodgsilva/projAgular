@@ -64,11 +64,26 @@
                      </div>
                     </div>
                  </div>
-                 
-             
+                 <div >
+                 <div class="col-md-6"> 
+               
+                  <label>Centro de Custo</label>
+                  <select for ="idrateio" [(ngModel)]="idrateio" [ngModelOptions]="{standalone: true}" class="form-control" style="width: 35%;">
+                     <option id="idrateio"  *ngFor ="let rateio of rateios" name="idrateio" [value]="rateio.id" >
+                       {{rateio.nome}}
+                      </option>
+                  </select>
                 </div>
+              </div> 
+         
+             
+               </div>
+               <label> {{idrateio}}</label>
+               <div >
+                 
                <button class="btn btn-primary" (click)="geraParcela()" >Parcela</button> 
                <button class="btn btn-primary" (click)="limparParcela()" >Limpar</button> 
+               </div >
               </div>  
               <div >
                   <table class="table table-bordered">

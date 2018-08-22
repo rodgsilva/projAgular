@@ -1,0 +1,63 @@
+<div class="col-md-12"style="margin-left:1%">
+  <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Service Photo | Pesquisa de Escola</h3>
+        </div>
+  <form class="form-horizontal" novalidate>
+          <div [ngClass]="classCss" role="alert" *ngIf="message">
+              <strong>{{message.text}}</strong>
+          </div>
+    <div >
+        <div class="box-body"> 
+            <div>
+              <div>
+                <label style="display: block">Nome Escola</label>
+              </div>
+               <input pInputText (keyup)="pesquisa()"  type="text" style="width: 200px" name="font"  [(ngModel)]="nomeEscola" >  
+            </div>
+        
+        
+     
+      <div class="col-md-12 ui-fluid">
+    
+        <table class="table table-bordered">
+           <tr>
+              <th style="width: 5px">&nbsp;</th>
+             <th style="width: 10px">Id</th>
+               <th>Nome</th>
+               <th>Nome Reduzido</th>
+               <th>email</th>
+               <th>cnpj</th>
+               <th>Logradouro</th>
+               <th>Numero</th>
+               <th>Complemento</th>
+               <th>bairro</th>
+               <th>Cidade</th>
+               <th>UF</th>
+               <th>CEP</th>
+              <th style="width: 5px">&nbsp;</th>              
+           </tr>
+           <tr *ngFor ="let escola of escolas">
+              <td><button class="btn btn-success glyphicon glyphicon-plus"(click)="eventEscola(escola.id)" ></button> </td>
+               <td>{{escola.id}}</td>
+               <td>{{escola.nome}} </td>
+               <td>{{escola.nomeReduzido}} </td>
+               <td>{{escola.email}} </td>
+               <td>{{escola.cnpj}} </td>
+               <td>{{escola.logradouro}} </td>
+               <td>{{escola.numero}}</td>
+               <td>{{escola.complemento}}</td>
+               <td>{{escola.bairro}}</td>
+               <td>{{escola.cidade}}</td>
+               <td>{{escola.estado}}</td>
+               <td>{{escola.cep}}</td>                                 
+           </tr>
+         
+         </table>
+      </div>
+    </div>
+
+    </div>  
+  </form>
+ </div>
+</div> 

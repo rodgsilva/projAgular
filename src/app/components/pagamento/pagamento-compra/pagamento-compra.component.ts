@@ -4,6 +4,8 @@ import { ParcelaFinaceiroPagarDTO } from '../../../model/parcela-financeiropagar
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { FinanceiroPagarService } from '../../../services/financeiro-pagar.service';
+import { CentroCustoService } from '../../../services/centro-custo.service';
+import { CentroRateioDTO } from '../../../model/centro-rateio';
 
 @Component({
   selector: 'app-pagamento-compra',
@@ -20,12 +22,15 @@ export class PagamentoCompraComponent implements OnInit {
  pedido;
  total;
  codfinc;
+ idrateio : string;
  intervalo:number=1;
  finaliza=false;
+ rateios:CentroRateioDTO[];
   constructor(
     private route: ActivatedRoute,
     private financeiro:FinanceiroPagarService,
-    private router: Router
+    private router: Router,
+    private rateioService: CentroCustoService
   ) { }
 
   ngOnInit() {
@@ -42,11 +47,18 @@ carregaPedido(){
       console.log(this.total)
 
     });
+   this.rateioService.findRateioAll()
+   .subscribe(response =>{
+    this.rateios = response ;
+   },
+    error => {});
+   
 }  
 geraParcela(){
   let vlparcela:number = this.total / this.qtdParcela;
   this.finaliza=true;
-
+  console.log(this.idrateio)
+ // this.idrateio =id;
   let datapec:Date = this.datVenc;
  
   for (let i =0; i < this.qtdParcela; i++ ){
@@ -71,11 +83,14 @@ geraParcela(){
 
 cadastrar(){
   console.log(this.pedido)
+ 
   this.documento ={
    id: null,
    valorTotal: this.total,
-   financeiroPagarParcela: this.parcelas
+   financeiroPagarParcela: this.parcelas,
+   centroRateio:{id:this.idrateio }
   }
+
 
   this.financeiro.insert(this.pedido,this.documento)
         .subscribe(response => {

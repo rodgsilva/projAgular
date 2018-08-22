@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FinanceiroPagarService } from '../../../services/financeiro-pagar.service';
 
 import { ParcelaFinaceiroPagarDTO } from '../../../model/parcela-financeiropagar';
+import { CentroCustoService } from '../../../services/centro-custo.service';
 
 @Component({
   selector: 'app-pagamento-compra-lista',
@@ -19,8 +20,8 @@ export class PagamentoCompraListaComponent implements OnInit {
 
 
   constructor(
-    private financeiroService: FinanceiroPagarService
-  ) { }
+    private financeiroService: FinanceiroPagarService,
+    private centroCustoService: CentroCustoService ) { }
 
   ngOnInit() {
     this.listar(this.page,this.count);

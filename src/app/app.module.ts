@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -41,6 +40,13 @@ import { PagamentoCompraComponent } from './components/pagamento/pagamento-compr
 import { PedidoCompraService } from './services/pedido-compra.service';
 import { FinanceiroPagarService } from './services/financeiro-pagar.service';
 import { PagamentoCompraListaComponent } from './components/pagamento/pagamento-compra-lista/pagamento-compra-lista.component';
+import { CentroCustoService } from './services/centro-custo.service';
+import { ContratoNovoComponent } from './components/contrato/contrato-novo/contrato-novo.component';
+import { ContratoEscolaComponent } from './components/contrato/contrato-novo/contrato-escola/contrato-escola.component';
+import { ContratoCentroCustoComponent } from './components/contrato/contrato-novo/contrato-centro-custo/contrato-centro-custo.component';
+import { ContratoService } from './services/contrato.service';
+import { ContratoPesquisaComponent } from './components/contrato/contrato-novo/contrato-pesquisa/contrato-pesquisa.component';
+import { ContratoComponent } from './components/contrato/contrato.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +73,12 @@ import { PagamentoCompraListaComponent } from './components/pagamento/pagamento-
     FornecedorNovoComponent,
     FornecedorConsultaComponent,
     PagamentoCompraComponent,
-    PagamentoCompraListaComponent
+    PagamentoCompraListaComponent,
+    ContratoNovoComponent,
+    ContratoEscolaComponent,
+    ContratoCentroCustoComponent,
+    ContratoPesquisaComponent,
+    ContratoComponent
     
   ],
   imports: [
@@ -88,7 +99,9 @@ import { PagamentoCompraListaComponent } from './components/pagamento/pagamento-
     CartService,
     FornecedorService,
     PedidoCompraService,
-    FinanceiroPagarService
+    FinanceiroPagarService,
+    CentroCustoService,
+    ContratoService
    ],
   bootstrap: [AppComponent]
 })

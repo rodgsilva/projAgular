@@ -5,4 +5,5 @@ export interface FinanceiroPagarDTO{
     id:RefDTO,
     financeiroPagarParcela: ParcelaFinaceiroPagarDTO[],
     valorTotal: number,
+    centroRateio:RefDTO;
 }
